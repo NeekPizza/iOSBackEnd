@@ -2,7 +2,7 @@ console.log('stops controller -- Server Side');
 var mongoose = require('mongoose');
 // WE NEED TO ADD A FEW lines of code here!
 // How does a controller talk to mongoose and get a model?
-// Build out the methods in the friendsControllers below
+// Build out the methods in the stopsControllers below
 var Stops=mongoose.model('Stops');
 function StopsController(){
   this.index = function(req, res) {
@@ -19,14 +19,14 @@ function StopsController(){
   this.create = function(req,res){
     console.log('Stops create');
    console.log('REQ.body', req.body);
-   var friend = new Stops({name: req.body.name, age: req.body.age});
-   console.log(friend);
-   friend.save(function(err) {
+   var stop = new Stops({name: req.body.name, age: req.body.age});
+   console.log(stop);
+   stop.save(function(err) {
      if (err) {
        console.log(err);
        res.json(err);
      } else {
-       // res.redirect('/friends');
+       // res.redirect('/stops');
        res.json({success: true});
      }
    })

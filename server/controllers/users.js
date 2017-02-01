@@ -2,7 +2,7 @@ console.log('users controller -- Server Side');
 var mongoose=require('mongoose');
 // WE NEED TO ADD A FEW lines of code here!
 // How does a controller talk to mongoose and get a model?
-// Build out the methods in the friendsControllers below
+// Build out the methods in the usersControllers below
 var User=mongoose.model('User');
 function UsersController(){
   this.index = function(req, res) {
@@ -19,14 +19,14 @@ function UsersController(){
   this.create = function(req,res){
     console.log('Users create');
    console.log('REQ.body', req.body);
-   var friend = new User({name: req.body.name, age: req.body.age});
-   console.log(friend);
-   friend.save(function(err) {
+   var user = new User({name: req.body.name});
+   console.log(user);
+   user.save(function(err) {
      if (err) {
        console.log(err);
        res.json(err);
      } else {
-       // res.redirect('/friends');
+       // res.redirect('/users');
        res.json({success: true});
      }
    })
